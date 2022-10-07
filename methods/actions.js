@@ -1,8 +1,41 @@
+var Mongo = require('mongodb-legacy');
+
 var User = require('../models/user')
+var Run = require('../models/run')
 var jwt = require('jwt-simple')
 var config = require('../config/dbconfig')
 
 var functions = {
+    addRun: function(req, res){
+        if ((!req.body.name) || (!req.body.distance)|| (!req.body.location) || (!req.body.date)){
+            res.json({success: false, msg: 'Enter all fields'})
+        } else{
+            var newRun = Run({
+                name: req.body.name,
+                distance: req.body.distance,
+                location: req.body.location,
+                date: req.body.date
+            });
+
+            newRun.save(function(err, newRun){
+                if (err) {
+                    res.json({success: false, msg: 'Failed to save'})
+                }
+                else {
+                    res.json({success: true, msg: 'Successfully saved'})
+                }
+            })
+        }
+    },
+
+    getAllRuns: function(req, res, next){
+        Run.find({}, function(err, result){
+            if (err) return handleError(err);
+            res.json(result)
+        })
+    },
+
+
     addNew: function (req, res) {
         if ((!req.body.email) || (!req.body.password)) {
             res.json({success: false, msg: 'Enter all fields'})

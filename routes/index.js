@@ -22,4 +22,12 @@ router.post('/authenticate', actions.authenticate)
 //@route GET /getinfo
 router.get('/getinfo', actions.getinfo)
 
+//@desc Adding new run
+//@route POST /addrun
+router.post('/addrun', actions.addRun)
+
+//@desc Get all runs
+//@route GET /getruns
+router.get('/getruns', actions.getAllRuns)
+
 module.exports = router
