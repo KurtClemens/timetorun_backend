@@ -14,7 +14,8 @@ var functions = {
                 name: req.body.name,
                 distance: req.body.distance,
                 location: req.body.location,
-                date: req.body.date
+                date: req.body.date,
+                img: req.body.img
             });
 
             newRun.save(function(err, newRun){
@@ -57,6 +58,9 @@ var functions = {
     },
 
     // addImage: function (req, res) {
+    //     User.findOne({
+    //         email: req.body.email
+    //     }, function(err, user){
     //     if ((!req.body.img)) {
     //         res.json({success: false, msg: 'Enter all fields'})
     //     }
@@ -74,6 +78,8 @@ var functions = {
     //             }
     //         })
     //     }
+    // }
+    //     )
     // },
 
 

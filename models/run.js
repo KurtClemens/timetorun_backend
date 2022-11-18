@@ -17,6 +17,10 @@ var runSchema = new Schema({
     date: {
         type: Date,
         require: true
+    },
+    img:{
+        type: String,
+        require: false
     }
 });
 
