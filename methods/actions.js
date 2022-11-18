@@ -58,23 +58,22 @@ var functions = {
     },
 
     addImage: function (req, res) {
-        Run.findOne({
-            name: req.body.name
-        }, function(err, run){
-        if ((!req.body.img)) {
-            res.json({success: false, msg: 'Enter image field'})
-        }
-        else {
-            Run.img = req.body.img
-            };
-            Run.save(function(err){
-                if (err) {
-                    res.json({success: false, msg: 'Failed to save'})
-                }
-                else {
-                    res.json({success: true, msg: 'Successfully saved'})
-                }
-            })
+        console.log(req.body.name)
+        Run.findOne({name: req.body.name},function (err, run) {
+            console.log(run);
+            //run.name = Run.modelName,
+            // run.distance = Run.distance,
+            // run.location = Run.location,
+            // run.date = Run.date,
+             run.img = req.body.img
+
+            // console.log(run.name + run.img);
+              run.save((saveErr, saveRun) => {
+            //      if(err)
+            //          res.send(err);
+    
+                  res.send(saveRun);
+             });
         }
     
         )
