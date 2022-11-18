@@ -14,6 +14,8 @@ router.get('/dashboard', (req, res) => {
 //@route POST /adduser
 router.post('/adduser', actions.addNew)
 
+router.patch('/addimage', actions.addImage)
+
 //@desc Authenticate a user
 //@route POST /authenticate
 router.post('/authenticate', actions.authenticate)

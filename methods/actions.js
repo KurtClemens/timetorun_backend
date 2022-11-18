@@ -55,6 +55,28 @@ var functions = {
             })
         }
     },
+
+    // addImage: function (req, res) {
+    //     if ((!req.body.img)) {
+    //         res.json({success: false, msg: 'Enter all fields'})
+    //     }
+    //     else {
+    //         var newUser = User({
+    //             email: req.body.email,
+    //             password: req.body.password
+    //         });
+    //         newUser.save(function (err, newUser) {
+    //             if (err) {
+    //                 res.json({success: false, msg: 'Failed to save'})
+    //             }
+    //             else {
+    //                 res.json({success: true, msg: 'Successfully saved'})
+    //             }
+    //         })
+    //     }
+    // },
+
+
     authenticate: function (req, res) {
         User.findOne({
             email: req.body.email
