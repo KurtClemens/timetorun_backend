@@ -15,7 +15,7 @@ var functions = {
                 distance: req.body.distance,
                 location: req.body.location,
                 date: req.body.date,
-                img: req.body.img
+                img: ""
             });
 
             newRun.save(function(err, newRun){
@@ -57,30 +57,28 @@ var functions = {
         }
     },
 
-    // addImage: function (req, res) {
-    //     User.findOne({
-    //         email: req.body.email
-    //     }, function(err, user){
-    //     if ((!req.body.img)) {
-    //         res.json({success: false, msg: 'Enter all fields'})
-    //     }
-    //     else {
-    //         var newUser = User({
-    //             email: req.body.email,
-    //             password: req.body.password
-    //         });
-    //         newUser.save(function (err, newUser) {
-    //             if (err) {
-    //                 res.json({success: false, msg: 'Failed to save'})
-    //             }
-    //             else {
-    //                 res.json({success: true, msg: 'Successfully saved'})
-    //             }
-    //         })
-    //     }
-    // }
-    //     )
-    // },
+    addImage: function (req, res) {
+        Run.findOne({
+            name: req.body.name
+        }, function(err, run){
+        if ((!req.body.img)) {
+            res.json({success: false, msg: 'Enter image field'})
+        }
+        else {
+            Run.img = req.body.img
+            };
+            Run.save(function(err){
+                if (err) {
+                    res.json({success: false, msg: 'Failed to save'})
+                }
+                else {
+                    res.json({success: true, msg: 'Successfully saved'})
+                }
+            })
+        }
+    
+        )
+    },
 
 
     authenticate: function (req, res) {

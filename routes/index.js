@@ -6,15 +6,15 @@ router.get('/', (req, res) => {
     res.send('Hello World')
 })
 
-router.get('/dashboard', (req, res) => {
-    res.send('Dashboard')
-})
+// router.get('/dashboard', (req, res) => {
+//     res.send('Dashboard')
+// })
 
 //@desc Adding new user
 //@route POST /adduser
 router.post('/adduser', actions.addNew)
 
-//router.patch('/addimage', actions.addImage)
+router.patch('/addimage', actions.addImage)
 
 //@desc Authenticate a user
 //@route POST /authenticate
